@@ -1,7 +1,8 @@
 function shuffelCards() {
-    deck = [];
-    suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
-    cardValue = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+    let deck = [];
+    const suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
+    const cardValue = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+    const specialCards = ["Joker", "Joker"];
 
     //creating cards
     for (let i = 0; i < suits.length; i++) {
@@ -9,7 +10,12 @@ function shuffelCards() {
             let card = {"Suit": suits[i], Value: cardValue[j]}
             deck.push(card)
         }
-    }    
+    }
+
+    for (let s = 0; s < specialCards.length; s++){
+        let card = {"Suit": specialCards[s], Value: specialCards[s]}
+        deck.push(card)
+    }
     
     //shuffeling cards
     for (let k = deck.length - 1; k > 0; k--) {
@@ -20,7 +26,12 @@ function shuffelCards() {
     }
 
     for(let l = 0; l < deck.length; l++) {
-        console.log(`${deck[l].Value} of ${deck[l].Suit}`)
+        if(deck[l].Value === "Joker") {
+            console.log("Joker")
+        }
+        else {
+            console.log(`${deck[l].Value} of ${deck[l].Suit}`)
+        }
     }
 }
 
