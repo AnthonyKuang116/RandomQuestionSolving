@@ -10,15 +10,17 @@ function maxNetworkRank() {
     for (let i = 0; i < m; i++) {
         edgeCount[a[i]] = (edgeCount[a[i]] ? edgeCount[a[i]] : 0) + 1;
         edgeCount[b[i]] = (edgeCount[b[i]] ? edgeCount[b[i]] : 0) + 1;
+        
     }
-
+    console.log(edgeCount[a[i]])
     for (let j = 0; j < m; j++) {
         const rank = edgeCount[a[j]] + edgeCount[b[j]] - 1;
+        // console.log(edgeCount[a[j]])
         if (rank > maxRank) {
             maxRank = rank;
         }
     }
-    console.log(maxRank)
+    // console.log(maxRank)
     return maxRank;
 }
 
