@@ -28,5 +28,8 @@ const mergeArr = (first, second) => {
         ...item
     }))
 }
-console.log(mergeArr(first, second));
+// console.log(mergeArr(first, second));
+
+let combineArr = first.map((item) => ({...item, ...second.find(data => data.uuid === item.uuid)}))
+console.log(combineArr);
 
